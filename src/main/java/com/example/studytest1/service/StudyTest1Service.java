@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-@Service // 인터페이스 서비스 기능
-@Slf4j // lombok 기능
+@Service // 인터페이스 서비스 기능 부가
+@Slf4j // lombok 기능 log.
 @RequiredArgsConstructor
 public class StudyTest1Service {
 
@@ -20,8 +20,9 @@ public class StudyTest1Service {
 
 
     public UserBoardDto findUser(Long seq) {
-
+        log.info("(1)");
         return userMapper.findById(seq);
+
     }
 
 }

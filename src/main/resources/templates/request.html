@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원등록 사이트</title>
+</head>
+<body>
+    <h1>등록할 회원의 정보를 입력하십시오.</h1>
+    <br>
+
+    <h3>회원 등록 요청</h3>
+    <form name="frm" action="/createUser" method="post">
+
+        <label for="id" class="sr-only">아이디 </label>
+        <input type="text" id="id" name="id2" class="form-control" placeholder="아이디" required>
+
+        <label for="passwd" class="sr-only">패스워드</label>
+        <input type="password" id="passwd" name="passwd2" placeholder="패스워드" required>
+
+        <button name="btn" type="submit" id="btnId">입력</button>
+    </form>
+
+</body>
+</html>

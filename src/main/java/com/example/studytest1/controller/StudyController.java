@@ -15,6 +15,13 @@ public class StudyController {
 
     private final StudyTest1Service studyTest1Service;
 
+    @GetMapping(value = "/")
+    public ModelAndView requestSize(ModelAndView mv){
+        mv.setViewName("request.html");
+        return mv;
+    }
+
+
     @GetMapping(value = "/findUser")
     public ModelAndView findUser(ModelAndView mv, Long seq){
 
@@ -25,6 +32,7 @@ public class StudyController {
 
         mv.addObject("email", userDto.getEmail());
         mv.addObject("passwd", userDto.getPasswd());
+        mv.addObject("create_at", userDto.getCreate_at());
         mv.setViewName("table1.html");
         return mv;
     }

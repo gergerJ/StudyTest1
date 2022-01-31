@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>h05.html</title>
     <style>
-        table {width:50%}
+        table {width:50%; text-align:center}
         table, th, td {border:1px solid black;
             border-collapse: collapse; padding:10px; }
         <!-- border-spacing:10px; -->
@@ -16,20 +16,17 @@
     <p>
     <table>
         <tr>
-            <th>이름</th>
-            <th>주소</th>
+            <th>이메일</th>
+            <th>passwd</th>
             <th>나이</th>
         </tr>
         <tr>
             <td th:text="${email}">이메일</td>
             <td th:text="${passwd}">부산시</td>
-            <td align="right">34</td>
+            <td th:text="${login_count}">로그인 횟수</td>
+            <td align="center">34</td>
         </tr>
-        <tr>
-            <td>이순신</td>
-            <td>광주시</td>
-            <td>30</td>
-        </tr>
+
         <tr>
             <td colspan="3" align="center">저장</td>
         </tr>
