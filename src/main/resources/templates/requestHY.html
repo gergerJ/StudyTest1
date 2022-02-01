@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>사용자 정보 입력창</title>
+</head>
+<body>
+    <h1>사용자 정보를 입력하세요! </h1>
+    <form name="frm" method="post" action="/createHYUser">
+        <label name="name" >이름</label>
+        <input name="name" id="name" type="text" class="form-control" placeholder="이름" required>
+
+        <label name="addr">주소</label>
+        <input type="text" id="addr" name="addr" class="form-control" placeholder="주소" required>
+
+        <label name="phonenumber">전화번호</label>
+        <input type="text" id="phonenumber" name="phonenumber" placeholder="전화번호" required>
+
+        <button name="btn" type="submit" id="btnId">입력</button>
+
+    </form>
+
+</body>
+</html>

@@ -36,4 +36,16 @@ public class StudyController {
         mv.setViewName("table1.html");
         return mv;
     }
+
+    @GetMapping(value = "/HY")
+    public ModelAndView requestHY(ModelAndView mv){
+        mv.setViewName("requestHY.html");
+        return mv;
+    }
+    @GetMapping (value="/HYTuserAll")
+    public ModelAndView findAll(ModelAndView mv){
+        mv.addObject("userAll", studyTest1Service.userAll());
+        mv.setViewName("HYT.html");
+        return mv;
+    }
 }

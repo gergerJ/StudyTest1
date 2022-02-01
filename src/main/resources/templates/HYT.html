@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HYTest Table</title>
+    <style>
+
+        table, tr, th,td { border:2px solid black; text-align:center;
+                    border-collapse: collapse; padding:30px}
+        table{margin-top:150px}
+        body{background-color: rgba(125,125,125,50%)}
+    </style>
+</head>
+<body>
+<center>
+    <table>
+        <tr>
+            <th>No</th>
+            <th>이름</th>
+            <th>주소</th>
+            <th>전화번호</th>
+            <th>마지막 주문일</th>
+        </tr>
+        <tr th:each="list : ${userAll}">
+            <td><span th:text="${list.seq}"></span></td>
+            <td><span th:text="${list.name}"></span></td>
+            <td><span th:text="${list.addr}"></span></td>
+            <td><span th:text="${list.phonenumber}"></span></td>
+            <td><span th:text="${list.lastorder}"></span></td>
+
+        </tr>
+    </table>
+</center>
+</body>
+</html>

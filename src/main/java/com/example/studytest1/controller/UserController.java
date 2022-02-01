@@ -31,4 +31,11 @@ public class UserController {
         mv.setViewName("resultAll.html");
         return mv;
     }
+
+    @PostMapping(value="/createHYUser")
+    public ModelAndView createHYUser(ModelAndView mv, String name, String addr, String phonenumber){
+        mv.addObject("createHY", userService.createHYUser(name, addr, phonenumber));
+        mv.setViewName("resultHY.html");
+        return mv;
+    }
 }

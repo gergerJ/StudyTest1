@@ -37,5 +37,14 @@ public class UserService {
         }
         return registerResult;
     }
+    public String createHYUser(String name, String addr, String phonenumber){
+        int result = userMapper.createHYUser(name, addr, phonenumber);
+        String resultSet = "등록 실패";
+
+        if(result>0){
+            resultSet = "등록 성공";
+        }
+        return resultSet;
+    }
     public List<UserBoardDto> selectAll(){return userMapper.selectAll();}
 }
