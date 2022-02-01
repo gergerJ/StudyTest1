@@ -19,11 +19,16 @@ public class UserController {
 //    }
 //    @RequiredArgsConstructor이 위 생성자 역할 대신함!!
 
-    @PostMapping (value = "/createUser")
-    public ModelAndView createUser(ModelAndView mv, String id, String passwd){
-        mv.addObject("create", userService.createUser(id,passwd));
+    @PostMapping(value = "/createUser")
+    public ModelAndView createUser(ModelAndView mv, String id2, String passwd2){
+        mv.addObject("create", userService.createUser(id2,passwd2));
         mv.setViewName("result.html");
         return mv;
     }
-
+    @GetMapping(value= "/findAll")
+    public ModelAndView findAll(ModelAndView mv){
+        mv.addObject("selectAll", userService.selectAll());
+        mv.setViewName("resultAll.html");
+        return mv;
+    }
 }

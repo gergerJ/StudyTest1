@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Select All User Table</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>이메일</th>
+            <th>비밀번호</th>
+            <th>로그인 회수</th>
+            <th>최근 로그인 날짜</th>
+        </tr>
+        <tr th:each="list : ${selectAll}">
+            <td><span th:text="${list.seq}"></span></td>
+            <td><span th:text="${list.email}"></span></td>
+            <td><span th:text="${list.passwd}"></span></td>
+            <td><span th:text="${list.login_count}"></span></td>
+            <td><span th:text="${list.last_login_at}"></span></td>
+
+        </tr>
+    </table>
+</body>
+</html>

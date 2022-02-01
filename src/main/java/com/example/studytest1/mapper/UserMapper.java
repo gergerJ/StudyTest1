@@ -15,7 +15,7 @@ import java.util.List;
 public interface UserMapper {
 
     @Select("SELECT * FROM USERS")
-    List<UserMapper> findAll();
+    List<UserBoardDto> selectAll();
 
     @Select("SELECT * FROM USERS where seq = #{seq}")
     UserBoardDto findById(Long seq);

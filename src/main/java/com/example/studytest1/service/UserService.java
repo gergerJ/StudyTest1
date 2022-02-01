@@ -1,17 +1,21 @@
 package com.example.studytest1.service;
 
 import com.example.studytest1.dto.RegisterDto;
+import com.example.studytest1.dto.UserBoardDto;
 import com.example.studytest1.mapper.UserMapper;
 import jdk.jfr.Registered;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Slf4j
 @RequiredArgsConstructor
 public class UserService {
     private final UserMapper userMapper;
+
 
     public String registerUser(RegisterDto registerDto){
         int result = userMapper.registerUser(registerDto);
@@ -33,4 +37,5 @@ public class UserService {
         }
         return registerResult;
     }
+    public List<UserBoardDto> selectAll(){return userMapper.selectAll();}
 }
