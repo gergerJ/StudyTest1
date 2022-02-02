@@ -33,5 +33,7 @@ public interface UserMapper {
     @Insert("insert into HYTest(name, addr, phonenumber, lastorder) values(#{name} , #{addr}, #{phonenumber}, now())")
     int createHYUser(String name, String addr, String phonenumber);
 
+    @Select("SELECT * FROM HYTest where seq = #{seq}")
+    HYTestDto findHYTUser(int seq);
 
 }

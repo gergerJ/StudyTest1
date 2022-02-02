@@ -29,7 +29,9 @@ public class StudyTest1Service {
     }
     public List<HYTestDto> userAll(){
         return userMapper.userAll();
-
+    }
+    public HYTestDto findHYUser(int seq){
+        return userMapper.findHYTUser(seq);
     }
 
 }

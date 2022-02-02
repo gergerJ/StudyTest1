@@ -1,5 +1,6 @@
 package com.example.studytest1.controller;
 
+import com.example.studytest1.dto.HYTestDto;
 import com.example.studytest1.dto.UserBoardDto;
 import com.example.studytest1.service.StudyTest1Service;
 import lombok.RequiredArgsConstructor;
@@ -46,6 +47,16 @@ public class StudyController {
     public ModelAndView findAll(ModelAndView mv){
         mv.addObject("userAll", studyTest1Service.userAll());
         mv.setViewName("HYT.html");
+        return mv;
+    }
+    @GetMapping(value="/findHYUser")
+    public ModelAndView findHYUser(ModelAndView mv, int seq){
+        HYTestDto hyTestDto = studyTest1Service.findHYUser(seq);
+       // log.info("seq{}","name{}", "phonename", ${hy});
+        mv.addObject("seq", hyTestDto.getSeq());
+        mv.addObject("name", hyTestDto.getName());
+        mv.addObject("phonenumber", hyTestDto.getPhonenumber());
+        mv.setViewName("tableHYUser.html");
         return mv;
     }
 }
