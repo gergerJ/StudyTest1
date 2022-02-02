@@ -19,8 +19,8 @@ public class UserController {
 //    }
 //    @RequiredArgsConstructor이 위 생성자 역할 대신함!!
 
-    @PostMapping(value = "/createUser")
-    public ModelAndView createUser(ModelAndView mv, String id2, String passwd2){
+    @PostMapping(value = "/createUser1")
+    public ModelAndView createUser1(ModelAndView mv, String id2, String passwd2){
         mv.addObject("create", userService.createUser(id2,passwd2));
         mv.setViewName("result.html");
         return mv;
@@ -38,4 +38,8 @@ public class UserController {
         mv.setViewName("resultHY.html");
         return mv;
     }
+
+
 }
+
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/cheatsheet.css" rel="stylesheet">
+    <script>
+        function reg() {
+            window.location.href="/createButton";
+        }
+        function delbtn(){
+            window.location.href="/";
+        }
+    </script>
+
+</head>
+<body>
+    <div class="bd-example">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">이름</th>
+                <th scope="col">주소</th>
+                <th scope="col">전화번호</th>
+                <th scope="col">주문일</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="list : ${findAll}">
+                <th scope="row"><span th:text ="${list.seq}"></span></th>
+                <td><span th:text="${list.name}"></span></td>
+                <td><span th:text="${list.addr}"></span></td>
+                <td><span th:text="${list.phonenumber}"></span></td>
+                <td><span th:text="${list.lastorder}"></span></td>
+                <td>
+                    <form name="update" action="/UpdateHYUser" method="post" >
+                        <input type="hidden" th:text="${list.seq}">
+                        <button type="button" class="btn btn-primary" onclick="upbtn()">수정</button>
+                    </form>
+                </td>
+                <td>
+                    <form name="delete" action="/DeleteHYUser" method="post" >
+                        <input type="hidden" th:text="${list.seq}">
+                        <button type="button" class="btn btn-primary" onclick="delbtn()">수정</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-12">
+        <button type="button" class="btn btn-primary" onclick="reg()">글쓰기</button>
+    </div>
+
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/cheatsheet.js"></script>
+
+</body>
+</html>

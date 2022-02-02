@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/cheatsheet.css" rel="stylesheet">
+</head>
+<body>
+
+    <article class="my-3" id="validation">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+            <h3>Validation</h3>
+            <a class="d-flex align-items-center" href="../forms/validation/">Documentation</a>
+        </div>
+
+        <div>
+            <div class="bd-example">
+                <form class="row g-3" name="frm" id="frm" action="/createUser" method="post">
+                    <div class="col-md-4">
+                        <label for="name" class="form-label">이름</label>
+                        <input class="form-control is-valid" id="name" name="name" type="text" placeholder="이름" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="addr" class="form-label">주소</label>
+                        <input type="text" class="form-control is-valid" id="addr" name="addr" placeholder="주소" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="phonenumber" class="form-label">주소</label>
+                        <input type="text" class="form-control is-valid" id="phonenumber" name="phonenumber" placeholder="전화번호" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" class="btn btn-primary" onclick="save()">회원 등록</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </article>
+
+
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/cheatsheet.js"></script>
+    <script>
+        function save() {
+            document.getElementById("frm").submit();
+        }
+    </script>
+</body>
+</html>
