@@ -51,15 +51,33 @@ public class BoarderController {
     }
     // 업데이트 할 부분의 창 보여주기 부분 구현
     @PostMapping(value ="/UpdateHYUser")
-    public ModelAndView UpdateUser(ModelAndView mv, int seq){
+    public ModelAndView UpdateListSelect(ModelAndView mv, int seq){
 
-        //boarderService.UpdateUser(seq);
         log.info("회원수정 진행! Controller ");
 
-        mv.addObject("findAll", boarderService.findAll());
-        mv.setViewName("boarder/boarderRegisterUpdate.html");
+        HYTestDto hyTestDto = boarderService.UpdateListSelect(seq);
+        log.info("seq:{}, name:{} , addr:{}, phonenumber:{}",hyTestDto.getSeq(), hyTestDto.getName(), hyTestDto.getAddr(), hyTestDto.getPhonenumber());
+
+        mv.addObject("seq", hyTestDto.getSeq());
+        mv.addObject("name", hyTestDto.getName());
+        mv.addObject("addr", hyTestDto.getAddr());
+        mv.addObject("phonenumber", hyTestDto.getPhonenumber());
+        //mv.addObject("findAll", boarderService.findAll());
+        //mv.addObject("updateList", boarderService.UpdateListSelect(seq));
+        mv.setViewName("boarder/boarderUpdateList.html");
         return mv;
     }
     //실제 업데이트 부분 구현
+    @PostMapping(value ="/UpdateHYUser11")
+    public ModelAndView UpdateUser(ModelAndView mv, HYTestDto hyTestDto){
 
+        //boarderService.UpdateUser(hyTestDto);
+        log.info("회원수정 진행! Controller ");
+        log.info("name:{}",hyTestDto.getName());
+
+        mv.addObject("findAll", boarderService.findAll());
+        //mv.addObject("Update", boarderService.UpdateUser(hyTestDto));
+        mv.setViewName("boarder/boarderUpdateList.html");
+        return mv;
+    }
 }

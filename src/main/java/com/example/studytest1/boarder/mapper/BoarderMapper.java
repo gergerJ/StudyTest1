@@ -1,10 +1,7 @@
 package com.example.studytest1.boarder.mapper;
 
 import com.example.studytest1.dto.HYTestDto;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -21,4 +18,11 @@ public interface BoarderMapper {
     @Delete("DELETE FROM HYTEST where SEQ = ${seq}")
     int Delete(int seq);
 
+    @Update("UPDATE HYTEST SET NAME=#{name}, ADDR=#{addr}, PHONENUMBER=#{phonenumber} where SEQ = #{seq}")
+    int Update(String name, String addr, String phonenumber, int seq);
+
+//    @Select("SELECT * FROM HYTEST WHERE SEQ=#{seq}")
+//    HYTestDto UpdateListSelect(String name, String addr, String phonenumber, int seq);
+    @Select("SELECT * FROM HYTEST WHERE SEQ=#{seq}")
+    HYTestDto UpdateListSelect(int seq);
 }

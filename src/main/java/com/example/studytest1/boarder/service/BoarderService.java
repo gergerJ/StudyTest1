@@ -13,6 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BoarderService {
     private final BoarderMapper boarderMapper;
+//    private final HYTestDto hyTestDto;
 
     public List<HYTestDto> findAll(){
         return boarderMapper.findAll();
@@ -33,6 +34,18 @@ public class BoarderService {
         log.info(resultSet);
         return boarderMapper.findAll();
     }
+    public int UpdateUser(HYTestDto hyTestDto){
+        //boarderMapper.Update(seq);
+        log.info("name{}", hyTestDto.getName());
+        return boarderMapper.Update(hyTestDto.getName(), hyTestDto.getAddr(), hyTestDto.getPhonenumber(),hyTestDto.getSeq());
+    }
+    public HYTestDto UpdateListSelect(int seq){
+//        log.info("seq:{}",hyTestDto.getSeq());
+//        log.info("name:{}",hyTestDto.getName());
+//        log.info("addr:{}",hyTestDto.getAddr());
 
+//        log.info("seq{}", hyTestDto);
+        return boarderMapper.UpdateListSelect(seq);
+    }
 
 }

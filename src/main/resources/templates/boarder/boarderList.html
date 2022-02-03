@@ -54,7 +54,7 @@
                 <td><span th:text="${list.phonenumber}"></span></td>
                 <td><span th:text="${list.lastorder}"></span></td>
                 <td>
-                    <button type="button" class="btn btn=primary" th:onclick="|updateBorderInfo${list.seq}|">수정</button>
+                    <button type="button" class="btn btn-primary" th:onclick="|updateBorderInfo(${list.seq})|">수정</button>
                 </td>
                 <td>
                     <button type="button" class="btn btn-primary" th:onclick="|deleteBorderInfo(${list.seq})|">삭제</button>
