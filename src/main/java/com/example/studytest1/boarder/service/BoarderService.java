@@ -17,14 +17,22 @@ public class BoarderService {
     public List<HYTestDto> findAll(){
         return boarderMapper.findAll();
     }
+
     public int createUser(HYTestDto hyTestDto){
         log.info("name:{}",hyTestDto.getName());
         return boarderMapper.create(hyTestDto.getName(), hyTestDto.getAddr(), hyTestDto.getPhonenumber() );
     }
 
-    public int DeleteUser(HYTestDto hyTestDto){
-        log.info("seq:{}",hyTestDto.getSeq());
-        return boarderMapper.Delete(hyTestDto.getName(), hyTestDto.getAddr(), hyTestDto.getPhonenumber() );
+    public List<HYTestDto> DeleteUser(int seq){
+        int Result = boarderMapper.Delete(seq);
+        String resultSet = "회원 삭제 실패";
+
+        if(Result>0){
+            resultSet = "회원 삭제 성공";
+        }
+        log.info(resultSet);
+        return boarderMapper.findAll();
     }
+
 
 }

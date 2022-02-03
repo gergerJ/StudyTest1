@@ -18,7 +18,7 @@ public interface BoarderMapper {
     @Insert("INSERT INTO HYTEST(name, addr, phonenumber, lastorder) values(#{name}, #{addr}, #{phonenumber}, now())")
     int create(String name, String addr, String phonenumber);
 
-    @Delete("DELETE FROM HYTEST SET NAME=${name}, ADDR=${addr}, phonenumber= ${phonenumber} where SEQ = ${seq}")
-    int Delete(String name, String addr, String phonenumber, int seq);
+    @Delete("DELETE FROM HYTEST where SEQ = ${seq}")
+    int Delete(int seq);
 
 }

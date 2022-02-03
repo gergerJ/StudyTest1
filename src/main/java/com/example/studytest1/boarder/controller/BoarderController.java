@@ -40,15 +40,26 @@ public class BoarderController {
         return mv;
     }
     @PostMapping(value ="/DeleteHYUser")
-    public ModelAndView DeleteUser(ModelAndView mv, HYTestDto hyTestDto){
+    public ModelAndView DeleteUser(ModelAndView mv, int seq){
 
-        int result = boarderService.DeleteUser(hyTestDto);
-        log.info("회원등록 완료!  {}", result);
+        boarderService.DeleteUser(seq);
+        log.info("회원삭제 완료! Controller ");
 
         mv.addObject("findAll", boarderService.findAll());
         mv.setViewName("boarder/boarderList.html");
         return mv;
     }
+    // 업데이트 할 부분의 창 보여주기 부분 구현
+    @PostMapping(value ="/UpdateHYUser")
+    public ModelAndView UpdateUser(ModelAndView mv, int seq){
 
+        //boarderService.UpdateUser(seq);
+        log.info("회원수정 진행! Controller ");
+
+        mv.addObject("findAll", boarderService.findAll());
+        mv.setViewName("boarder/boarderRegisterUpdate.html");
+        return mv;
+    }
+    //실제 업데이트 부분 구현
 
 }

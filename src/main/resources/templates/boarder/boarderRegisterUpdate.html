@@ -22,30 +22,30 @@
 
         <div>
             <div class="bd-example">
-                <form class="row g-3" name="frm" id="frm" action="/createUser" method="post">
+                <form class="row g-3" name="frm" id="frm" action="/updateDoHYUser" method="post" th:each="list : ${findAll}">
                     <div class="col-md-4">
                         <label for="name" class="form-label">이름</label>
-                        <input class="form-control is-valid" id="name" name="name" type="text" placeholder="이름" required>
+                        <input class="form-control is-valid" id="name" name="name" type="text" th:text="${list.name}" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                     </div>
                     <div class="col-md-4">
                         <label for="addr" class="form-label">주소</label>
-                        <input type="text" class="form-control is-valid" id="addr" name="addr" placeholder="주소" required>
+                        <input type="text" class="form-control is-valid" id="addr" name="addr" th:text="${list.addr}" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                     </div>
                     <div class="col-md-4">
                         <label for="phonenumber" class="form-label">전화번호</label>
-                        <input type="text" class="form-control is-valid" id="phonenumber" name="phonenumber" placeholder="전화번호" required>
+                        <input type="text" class="form-control is-valid" id="phonenumber" name="phonenumber" th:text="${list.lastorder}" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                     </div>
                     <div class="col-12">
-                        <button type="button" class="btn btn-primary" onclick="save()">회원 등록</button>
+                        <button type="button" class="btn btn-primary" onclick="save()">수정 완료</button>
                     </div>
                 </form>
             </div>

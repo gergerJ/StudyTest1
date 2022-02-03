@@ -15,13 +15,26 @@
         function reg() {
             window.location.href="/createButton";
         }
-        function delbtn(){
-            window.location.href="/";
+        function deleteBorderInfo(seq){
+            const reqDeleteBoarder = document.reqDeleteBoarder;
+            reqDeleteBoarder.seq.value = seq;
+            reqDeleteBoarder.submit();
+        }
+        function updateBorderInfo(seq){
+            const reqUpdateBoarder = document.reqUpdateBoarder;
+            reqUpdateBoarder.seq.value = seq;
+            reqUpdateBoarder.submit();
         }
     </script>
 
 </head>
 <body>
+<form name="reqDeleteBoarder" action="/DeleteHYUser" method="post" >
+    <input type="hidden" name="seq">
+</form>
+<form name="reqUpdateBoarder" action="/UpdateHYUser" method="post">
+    <input type="hidden" name="seq">
+</form>
     <div class="bd-example">
         <table class="table table-striped">
             <thead>
@@ -41,16 +54,10 @@
                 <td><span th:text="${list.phonenumber}"></span></td>
                 <td><span th:text="${list.lastorder}"></span></td>
                 <td>
-                    <form name="update" action="/UpdateHYUser" method="post" >
-                        <input type="hidden" th:text="${list.seq}">
-                        <button type="button" class="btn btn-primary" onclick="upbtn()">수정</button>
-                    </form>
+                    <button type="button" class="btn btn=primary" th:onclick="|updateBorderInfo${list.seq}|">수정</button>
                 </td>
                 <td>
-                    <form name="delete" action="/DeleteHYUser" method="post" >
-                        <input type="hidden" th:text="${list.seq}">
-                        <button type="button" class="btn btn-primary" onclick="delbtn()">수정</button>
-                    </form>
+                    <button type="button" class="btn btn-primary" th:onclick="|deleteBorderInfo(${list.seq})|">삭제</button>
                 </td>
             </tr>
             </tbody>
