@@ -15,10 +15,10 @@ public interface BoarderMapper {
     @Insert("INSERT INTO HYTEST(name, addr, phonenumber, lastorder) values(#{name}, #{addr}, #{phonenumber}, now())")
     int create(HYTestDto hyTestDto);
 
-    @Delete("DELETE FROM HYTEST where SEQ = ${seq}")
+    @Delete("DELETE FROM HYTEST where SEQ = #{seq}")
     int Delete(long seq);
 
-    @Update("UPDATE HYTEST SET name = #{name}, addr = #{addr}, phonenumber = #{phonenumber} where SEQ = #{seq}")
+    @Update("UPDATE HYTEST SET name = #{name}, addr = #{addr}, phonenumber = #{phonenumber} where seq = #{seq}")
     int update(HYTestDto hyTestDto);
 
 //    @Select("SELECT * FROM HYTEST WHERE SEQ=#{seq}")

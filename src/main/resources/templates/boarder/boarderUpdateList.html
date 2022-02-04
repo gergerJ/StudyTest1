@@ -27,7 +27,8 @@
 
     <div>
         <div class="bd-example">
-            <form class="row g-3" name="frm" id="frm" action="/boarder/UpdateHYUser11" method="post" >
+            <form class="row g-3" name="frm" action="/boarder/UpdateHYUser11" method="post" >
+                <input type="hidden" name="seq" th:value="${user.seq}">
                 <div class="col-md-4">
                     <label for="name" class="form-label">이름</label>
                     <input class="form-control is-valid" id="name" name="name" type="text" th:value ="${user.name}" required>
@@ -60,10 +61,6 @@
 
 <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/js/cheatsheet.js"></script>
-<script>
-    function save() {
-        document.getElementById("frm").submit();
-    }
-</script>
+
 </body>
 </html>

@@ -50,7 +50,7 @@ public class BoarderController {
         return mv;
     }
     // 업데이트 할 부분의 창 보여주기 부분 구현
-    @PostMapping(value ="/UpdateHYUser")
+    @GetMapping(value ="/UpdateHYUser")
     public ModelAndView UpdateListSelect(ModelAndView mv, long seq){
 
         log.info("회원수정 진행! Controller ");
