@@ -13,7 +13,7 @@
     <link href="/css/cheatsheet.css" rel="stylesheet">
     <script>
         function reg() {
-            window.location.href="/createButton";
+            window.location.href="/boarder/createButton";
         }
         function deleteBorderInfo(seq){
             const reqDeleteBoarder = document.reqDeleteBoarder;
@@ -29,10 +29,10 @@
 
 </head>
 <body>
-<form name="reqDeleteBoarder" action="/DeleteHYUser" method="post" >
+<form name="reqDeleteBoarder" action="/boarder/DeleteHYUser" method="post" >
     <input type="hidden" name="seq">
 </form>
-<form name="reqUpdateBoarder" action="/UpdateHYUser" method="post">
+<form name="reqUpdateBoarder" action="/boarder/UpdateHYUser" method="post">
     <input type="hidden" name="seq">
 </form>
     <div class="bd-example">

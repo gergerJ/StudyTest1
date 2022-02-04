@@ -1,5 +1,5 @@
 create table HYTest(
-    seq int not null AUTO_INCREMENT,
+    seq bigint not null AUTO_INCREMENT,
     name varchar(50) not null,
     addr varchar(50) not null,
     phonenumber varchar(30) not null,

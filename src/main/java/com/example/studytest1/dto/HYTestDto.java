@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class HYTestDto {
-    private int seq;
+    private Long seq;
     private String name;
     private String addr;
     private String phonenumber;

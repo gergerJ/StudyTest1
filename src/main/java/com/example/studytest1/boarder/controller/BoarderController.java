@@ -9,16 +9,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @Slf4j
 @RequiredArgsConstructor
+@RequestMapping("/boarder")
 public class BoarderController {
     private final BoarderService boarderService;
 
-    @GetMapping(value = "/indexTable1")
+    @GetMapping(value = "/list")
     public ModelAndView findALl(ModelAndView mv){
         mv.addObject("findAll", boarderService.findAll());
         mv.setViewName("boarder/boarderList.html");
@@ -36,11 +36,11 @@ public class BoarderController {
         log.info("회원등록 완료!  {}", result);
 
         mv.addObject("findAll", boarderService.findAll());
-        mv.setViewName("boarder/boarderList.html");
+        mv.setViewName("redirect:/boarder/list");
         return mv;
     }
     @PostMapping(value ="/DeleteHYUser")
-    public ModelAndView DeleteUser(ModelAndView mv, int seq){
+    public ModelAndView DeleteUser(ModelAndView mv, long seq){
 
         boarderService.DeleteUser(seq);
         log.info("회원삭제 완료! Controller ");
@@ -51,19 +51,14 @@ public class BoarderController {
     }
     // 업데이트 할 부분의 창 보여주기 부분 구현
     @PostMapping(value ="/UpdateHYUser")
-    public ModelAndView UpdateListSelect(ModelAndView mv, int seq){
+    public ModelAndView UpdateListSelect(ModelAndView mv, long seq){
 
         log.info("회원수정 진행! Controller ");
 
         HYTestDto hyTestDto = boarderService.UpdateListSelect(seq);
         log.info("seq:{}, name:{} , addr:{}, phonenumber:{}",hyTestDto.getSeq(), hyTestDto.getName(), hyTestDto.getAddr(), hyTestDto.getPhonenumber());
+        mv.addObject("user", hyTestDto);
 
-        mv.addObject("seq", hyTestDto.getSeq());
-        mv.addObject("name", hyTestDto.getName());
-        mv.addObject("addr", hyTestDto.getAddr());
-        mv.addObject("phonenumber", hyTestDto.getPhonenumber());
-        //mv.addObject("findAll", boarderService.findAll());
-        //mv.addObject("updateList", boarderService.UpdateListSelect(seq));
         mv.setViewName("boarder/boarderUpdateList.html");
         return mv;
     }
@@ -72,12 +67,12 @@ public class BoarderController {
     public ModelAndView UpdateUser(ModelAndView mv, HYTestDto hyTestDto){
 
         //boarderService.UpdateUser(hyTestDto);
-        log.info("회원수정 진행! Controller ");
+        log.info("실제 회원 수정!!! Controller ");
         log.info("name:{}",hyTestDto.getName());
 
-        mv.addObject("findAll", boarderService.findAll());
-        //mv.addObject("Update", boarderService.UpdateUser(hyTestDto));
-        mv.setViewName("boarder/boarderUpdateList.html");
+        //mv.addObject("findAll", boarderService.findAll());
+        mv.addObject("findAll", boarderService.UpdateHYUser(hyTestDto));
+        mv.setViewName("redirect:/boarder/list");
         return mv;
     }
 }
